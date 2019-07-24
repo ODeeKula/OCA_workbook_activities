@@ -1,8 +1,11 @@
 package soccer;
 
+import javax.xml.transform.sax.SAXSource;
+
 public class League {
     public static void main(String[] args){
 //        app code here
+
 //        declaring the players
         Player player1 = new Player();
         player1.playerName = "Big Show";
@@ -19,7 +22,7 @@ public class League {
         Player player5 =  new Player();
         player5.playerName = "Triple H";
 
-//        a Player array called thePlayers that comprises the three Player objects
+//        a Player array called thePlayers that comprises the five Player objects
 //        that you just instantiated.
         Player[] thePlayers = {player1, player2, player3, player4, player5};
 
@@ -30,10 +33,7 @@ public class League {
 
 //        Set the playerArray attribute of the Team object to the Player array thePlayers.
         team1.playerArray = thePlayers;
-
-        for(Player thePlayer : team1.playerArray) {
-            System.out.println(thePlayer.playerName);
-        }
+        System.out.println(team1.playerArray[4]);
 
         System.out.println("- - - - - - - - -");
 
@@ -56,10 +56,44 @@ public class League {
         team2.playerArray[4] = new Player();
         team2.playerArray[4].playerName = "Dean Embrowes";
 
+        System.out.println(team2.playerArray[4]);
 
-        for(Player thePlayer : team2.playerArray) {
-            System.out.println(thePlayer.playerName);
-        }
+
+//        create a method to print out team1 and team2 without the for loop
+//        public method(){
+//
+//        }
+
+//        Creating a game and populating the home and away team
+        Game curreGame = new Game();
+        curreGame.homeTeam =  team1;
+        curreGame.awayTeam = team2;
+
+//        creating a goal object scored by home team
+        Goal goal1 =  new Goal();
+        goal1.thePlayer = curreGame.homeTeam.playerArray[1];
+        goal1.theTeam =  curreGame.homeTeam;
+        goal1.theTime = 55;
+
+//        Put this Goal object in a Goal array, and then assign this Goal array to the goals
+//        attribute of the Game object.
+        Goal[] theGoals = {goal1};
+        curreGame.goals = theGoals;
+
+//        Print out the score of the game (if there was more than one goal, you would need to
+//        use a loop)
+        System.out.println("Goal scored after " +
+                curreGame.goals[0].theTime + " mins by " +
+                curreGame.goals[0].thePlayer.playerName + " of " +
+                curreGame.goals[0].theTeam.teamName
+        );
+
+
+
+
+
+
+
 
     }
 
