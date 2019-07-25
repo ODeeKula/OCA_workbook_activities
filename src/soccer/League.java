@@ -1,7 +1,5 @@
 package soccer;
 
-import javax.xml.transform.sax.SAXSource;
-
 public class League {
     public static void main(String[] args){
 //        app code here
@@ -25,7 +23,6 @@ public class League {
 //        a Player array called thePlayers that comprises the five Player objects
 //        that you just instantiated.
         Player[] thePlayers = {player1, player2, player3, player4, player5};
-
         Team team1 = new Team();
 
 //        Set the teamName attribute of the Team object to "The Legends".
@@ -33,7 +30,12 @@ public class League {
 
 //        Set the playerArray attribute of the Team object to the Player array thePlayers.
         team1.playerArray = thePlayers;
-        System.out.println(team1.playerArray[4]);
+
+//        for(Player thePlayer : team1.playerArray) {
+//            System.out.println(thePlayer.playerName);
+//        }
+
+//        System.out.println(team1.playerArray[4]);
 
         System.out.println("- - - - - - - - -");
 
@@ -56,13 +58,10 @@ public class League {
         team2.playerArray[4] = new Player();
         team2.playerArray[4].playerName = "Dean Embrowes";
 
-        System.out.println(team2.playerArray[4]);
 
 
-//        create a method to print out team1 and team2 without the for loop
-//        public method(){
-//
-//        }
+        System.out.println("* * * * * * * * * * *");
+
 
 //        Creating a game and populating the home and away team
         Game curreGame = new Game();
@@ -88,13 +87,29 @@ public class League {
                 curreGame.goals[0].theTeam.teamName
         );
 
+        for(Player thePlayer : team2.playerArray) {
+            if (thePlayer.playerName.matches(".*John.*")){
+                System.out.println("Found " + thePlayer.playerName);
 
+                System.out.println("Last name is " + thePlayer.playerName.split(" ")[1]);
+            }
+        }
 
+        System.out.println("* * * * * * * * * * * *");
 
+        for(Player thePlayer : team1.playerArray){
+            String name[] = thePlayer.playerName.split(" ");
+            StringBuilder teamOneNames = new StringBuilder();
+            teamOneNames.append(name[0]);     //prints out only firstName
+            teamOneNames.append(", ");        //seperates the names by ","
+            teamOneNames.append(name[1]);     //prints out full name
 
-
+            System.out.println(teamOneNames);
+        }
 
 
     }
+
+
 
 }
