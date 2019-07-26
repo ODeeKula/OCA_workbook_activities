@@ -4,6 +4,7 @@ package soccer;
 public class League {
     public static void main(String[] args) {
 
+
         Team[] theTeams = createTeams();
 
         Game[] theGames = createGames(theTeams);
@@ -11,15 +12,9 @@ public class League {
 
         currGame.playGame();
 
-
-
-
-
-
-
-
-
     }
+
+
 
     public static Team[] createTeams() {
 
@@ -71,13 +66,18 @@ public class League {
     }
 
     public static Game[] createGames(Team[] theTeams) {
+
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
         theGame.awayTeam = theTeams[1];
 
-        Game[] theGames = {theGame};
+//        Game[] theGames = {theGame};
+        League theLeague = new League();
+        Game[] theGames = theLeague.createGames(theTeams);
 
         return theGames;
+
+
 
     }
 

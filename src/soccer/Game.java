@@ -6,8 +6,8 @@ public class Game {
     public Goal[] goals;
 
 
-    public void playGame() {
-        int numberOfGoals = (int)(Math.random() * 7);
+    public void playGame(int maxGoals) {
+        int numberOfGoals = (int)(Math.random() * (maxGoals + 1));
         Goal [] theGoals =  new Goal[numberOfGoals];
         this.goals = theGoals;
         utility.GameUtils.addGameGoals(this);
@@ -27,6 +27,10 @@ public class Game {
         }
 
         return returnString.toString();
+    }
+
+    public void playGame(){
+        playGame(6);
     }
 
 }
