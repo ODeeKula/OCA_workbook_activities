@@ -1,33 +1,23 @@
 package soccer;
 
+
 public class League {
-    public static void main(String[] args){
-//        app code here
+    public static void main(String[] args) {
 
         Team[] theTeams = createTeams();
 
         Game[] theGames = createGames(theTeams);
-        Game  currGame = theGames[0];
+        Game currGame = theGames[0];
+
+        currGame.playGame();
 
 
-//        creating a goal object scored by home team
-        Goal goal1 =  new Goal();
-        goal1.thePlayer = currGame.homeTeam.playerArray[1];
-        goal1.theTeam =  currGame.homeTeam;
-        goal1.theTime = 55;
 
-//        Put this Goal object in a Goal array, and then assign this Goal array to the goals
-//        attribute of the Game object.
-        Goal[] theGoals = {goal1};
-        currGame.goals = theGoals;
 
-//        Print out the score of the game (if there was more than one goal, you would need to
-//        use a loop)
-        System.out.println("Goal scored after " +
-                currGame.goals[0].theTime + " mins by " +
-                currGame.goals[0].thePlayer.playerName + " of " +
-                currGame.goals[0].theTeam.teamName
-        );
+
+
+
+
 
     }
 
@@ -39,13 +29,13 @@ public class League {
         Player player2 = new Player();
         player2.playerName = "Mark Hendry";
 
-        Player player3 =  new Player();
+        Player player3 = new Player();
         player3.playerName = "Brock Lesnar";
 
         Player player4 = new Player();
         player4.playerName = "Great Khali";
 
-        Player player5 =  new Player();
+        Player player5 = new Player();
         player5.playerName = "Triple H";
 
         Player[] thePlayers = {player1, player2, player3, player4, player5};
@@ -59,7 +49,7 @@ public class League {
         Team team2 = new Team();
         team2.teamName = "The Brookies";
         team2.playerArray = new Player[5];
-,
+
         team2.playerArray[0] = new Player();
         team2.playerArray[0].playerName = "Rey Mysterio";
 
@@ -76,23 +66,20 @@ public class League {
         team2.playerArray[4].playerName = "Dean Embrowes";
 
 
-
         Team[] theTeams = {team1, team2};
         return theTeams;
     }
 
-    public static Game[] createGames(Team[] theTeams){
-    Game theGame = new Game();
-    theGame.homeTeam = theTeams[0];
-    theGame.awayTeam = theTeams[1];
+    public static Game[] createGames(Team[] theTeams) {
+        Game theGame = new Game();
+        theGame.homeTeam = theTeams[0];
+        theGame.awayTeam = theTeams[1];
 
-    Game[] theGames = {theGame};
+        Game[] theGames = {theGame};
 
-    return theGames;
+        return theGames;
 
     }
-
-
 
 
 }
